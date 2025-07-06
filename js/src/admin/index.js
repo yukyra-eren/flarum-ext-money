@@ -55,6 +55,11 @@ app.initializers.add('antoinefr-money', () => {
       type: 'checkbox',
     })
     .registerSetting({
+      setting: 'antoinefr-money.ignorenotifyingusers',
+      label: app.translator.trans('antoinefr-money.admin.settings.ignore_notifying_users'),
+      type: 'checkbox',
+    })
+    .registerSetting({
       setting: 'antoinefr-money.noshowzero',
       label: app.translator.trans('antoinefr-money.admin.settings.noshowzero'),
       type: 'checkbox',
@@ -66,5 +71,13 @@ app.initializers.add('antoinefr-money', () => {
         permission: 'user.edit_money',
       },
       'moderate',
+    )
+    .registerPermission(
+        {
+            icon: 'far fa-eye',
+            label: app.translator.trans('antoinefr-money.admin.permissions.disable_money_label'),
+            permission: 'discussion.money.disable_money',
+        },
+        'start',
     );
 });
